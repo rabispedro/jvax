@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:15.2-alpine3.17
+    container_name: db_doacao_sangue_poov
+    restart: always
+    mem_limit: 512mb
+    environment:
+      - POSTGRES_DB=db_doacao_sangue
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=myuser
+    ports:
+      - 5445:5432
+    volumes:
+      - ./volumes/db:/var/lib/postgresql/data
